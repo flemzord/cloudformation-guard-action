@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 ARG CFN_GUARD_VERSION=2.0.4
 
-LABEL "maintainer"="Dagen Brock <dagenbrock@gmail.com>" \
+LABEL "maintainer"="Maxence Maireaux <maxence@maireaux.fr>" \
       "com.github.actions.name"="CloudFormation Guard Action" \
       "com.github.actions.description"="CloudFormation Guard action using cfn-guard" \
       "com.github.actions.icon"="check-circle" \

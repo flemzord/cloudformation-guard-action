@@ -18,7 +18,7 @@ Example of the expected directory structure when called with cfn_directory = 'cl
 ```
 .
 └── cloudformation
-    ├── demostack.cft
+    ├── demostack.yaml
     └── demostack.ruleset
 ```
 
@@ -26,10 +26,6 @@ The extension of the template doesn't matter, but the matching ruleset must be n
 
 ## Credentials
 As this action is essentially a static analysis of your CloudFormation template against a set of rules, no credentials are required.
-
-## TODO
-
-- allow for pulling ruleset from url so it doens't have to be stored in action repo but can still be centralized
 
 ## References
 

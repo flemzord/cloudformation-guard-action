@@ -20,4 +20,4 @@ RUN wget https://github.com/aws-cloudformation/cloudformation-guard/releases/dow
   && cfn-guard -h
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
-ENTRYPOINT ["bash /entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]

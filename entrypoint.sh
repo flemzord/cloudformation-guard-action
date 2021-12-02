@@ -7,9 +7,6 @@ if [ -z "${INPUT_CFN_DIRECTORY}" ] ; then
   exit 1
 fi
 
-# check if using default or provided rules
-echo "INPUT_RULESET_FILE set to $INPUT_RULESET_FILE"
-
 # find templates with 'Resources'
 POSSIBLE_TEMPLATES=$(grep --with-filename --recursive 'Resources' ${INPUT_CFN_DIRECTORY}/* | cut -d':' -f1 | sort -u)
 

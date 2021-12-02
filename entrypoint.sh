@@ -14,7 +14,7 @@ echo "INPUT_RULESET_FILE set to $INPUT_RULESET_FILE"
 POSSIBLE_TEMPLATES=$(grep --with-filename --recursive 'Resources' ${INPUT_CFN_DIRECTORY}/* | cut -d':' -f1 | sort -u)
 
 for f in $POSSIBLE_TEMPLATES; do
-    if [ ${f} == *".yml"* ]; then
+    if grep -q ".yml" <<< "${f}"; then
       echo "Checking for ruleset matching template file: ${f}"
       rules=${f%.*}.ruleset
       echo "                                      Found: $rules"

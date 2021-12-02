@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # validate inputs
 if [ -z "${INPUT_CFN_DIRECTORY}" ] ; then

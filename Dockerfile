@@ -11,7 +11,7 @@ LABEL "maintainer"="Dagen Brock <dagenbrock@gmail.com>" \
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-RUN apt-get update && apt-get install -yy wget
+RUN apt-get update && apt-get install -yy wget bash
 
 RUN wget https://github.com/aws-cloudformation/cloudformation-guard/releases/download/$CFN_GUARD_VERSION/cfn-guard-v2-ubuntu-latest.tar.gz \
   && tar -xzf cfn-guard-v2-ubuntu-latest.tar.gz \
@@ -20,4 +20,4 @@ RUN wget https://github.com/aws-cloudformation/cloudformation-guard/releases/dow
   && cfn-guard -h
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["bash /entrypoint.sh"]

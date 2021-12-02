@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-ARG CFN_GUARD_VERSION=2.0.3
+ARG CFN_GUARD_VERSION=2.0.4
 
 LABEL "maintainer"="Dagen Brock <dagenbrock@gmail.com>" \
       "com.github.actions.name"="CloudFormation Guard Action" \

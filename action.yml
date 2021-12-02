@@ -1,6 +1,6 @@
 name: 'cloudformation-guard-action'
 description: 'Run cfn-guard compliance tool against your repository'
-author: 'Dagen Brock'
+author: 'Maxence Maireaux'
 branding:
     icon: 'shield'
     color: 'orange'
@@ -9,12 +9,6 @@ inputs:
         description: 'Sub Directory of cloudformation templates'
         required: true
         default: 'cloudformation'
-
-    ruleset_file:
-        description: 'path/to/file of ruleset file'
-        required: true
-        default: '/cfn-guard.ruleset'
-        # default: 'infrastructure/templates/cfn-guard.ruleset'
 
 runs:
     using: 'docker'

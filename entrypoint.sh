@@ -13,25 +13,22 @@ echo "INPUT_RULESET_FILE set to $INPUT_RULESET_FILE"
 # find templates with 'Resources'
 POSSIBLE_TEMPLATES=$(grep --with-filename --recursive 'Resources' ${INPUT_CFN_DIRECTORY}/* | cut -d':' -f1 | sort -u)
 
-for F in $POSSIBLE_TEMPLATES; do
-  echo "START evaluating $F"
-
-  if echo "$F" | grep ruleset
-  then
-    echo "Skipping ruleset file"
-  else
-    cg_cmd="cfn-guard validate --rules $INPUT_RULESET_FILE --data ${PWD}/${F} --type CFNTemplate"
-    $cg_cmd
-
-    if [ $? -ne 0 ]
-    then
-      echo "CFN GUARD FAIL!"
-      exit 1 # fail on first error
+for f in $POSSIBLE_TEMPLATES; do
+    echo "Checking for ruleset matching template file: ${f}"
+    rules=${f%.*}.ruleset
+    if [ -e $rules ]; then
+        echo "                                      Found: $rules"
+        cg_cmd="cfn-guard validate --rules $rules  --template ${PWD}/${f}"
+        echo "Running command:"
+        echo "$ $cg_cmd"
+        $cg_cmd
+        if [ $? -ne 0 ]; then
+            echo "CFN GUARD FAIL!"
+            exit 1
+        fi
+    else
+        echo "No matching: $rules"
     fi
-  fi
-
-  echo "END"
-  echo ""
 done
 
 echo "CloudFormation Guard Scan Complete"

@@ -7,7 +7,7 @@ A Github Action to allow run cfn-guard (CloudFormation Guard) compliance checks 
 
 ```yaml
 - name: Run CloudFormation Guard
-  uses: kidbrax/cloudformation-guard-action@main
+  uses: flemzord/cloudformation-guard-action@main
   with:
     cfn_directory: cloudformation
 ```
